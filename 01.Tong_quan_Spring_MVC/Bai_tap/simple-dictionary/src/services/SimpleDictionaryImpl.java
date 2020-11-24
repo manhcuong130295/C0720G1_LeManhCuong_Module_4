@@ -12,20 +12,27 @@ import java.util.Map;
 public class SimpleDictionaryImpl implements SimpleDictionary {
     private static Map<Integer,Dictionary> dictionary=new HashMap<>();
     static {
-        dictionary.put(1,new Dictionary("greeting","chao hoi"));
-        dictionary.put(2,new Dictionary("bicycle","xe dap"));
-        dictionary.put(3,new Dictionary("computer","may tinh"));
-        dictionary.put(4,new Dictionary("technology","cong nghe"));
-        dictionary.put(5,new Dictionary("information","thong tin"));
-        dictionary.put(6,new Dictionary("keyboard","ban phim"));
-        dictionary.put(7,new Dictionary("screen  ","man hinh"));
-        dictionary.put(8,new Dictionary("setup","cai dat"));
-        dictionary.put(9,new Dictionary("position","vi tri"));
-        dictionary.put(10,new Dictionary("style","phong cach"));
+        dictionary.put(1,new Dictionary("greeting","chào hỏi"));
+        dictionary.put(2,new Dictionary("bicycle","xe đạp"));
+        dictionary.put(3,new Dictionary("computer","máy tính"));
+        dictionary.put(4,new Dictionary("technology","công nghệ"));
+        dictionary.put(5,new Dictionary("information","thông tin"));
+        dictionary.put(6,new Dictionary("keyboard","bàn phím"));
+        dictionary.put(7,new Dictionary("screen  ","màn hình"));
+        dictionary.put(8,new Dictionary("setup","cài đặt"));
+        dictionary.put(9,new Dictionary("position","vị trí"));
+        dictionary.put(10,new Dictionary("style","phong cách"));
     }
 
     @Override
-    public List<Dictionary> getAllList() {
-        return new ArrayList<>(dictionary.values());
+    public String search(String searchWord){
+        String result=null;
+        List<Dictionary> dictionaries=new ArrayList<>(dictionary.values());
+        for (int i=0;i<dictionaries.size();i++){
+           if (searchWord.equalsIgnoreCase(dictionaries.get(i).getEng())){
+               result=dictionaries.get(i).getVie();
+           }
+       }
+        return result;
     }
 }

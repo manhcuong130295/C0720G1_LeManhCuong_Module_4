@@ -7,7 +7,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e25ddac-b849-4c4b-88aa-0a947e32ee39" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../New Text Document.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/currency-conversion/src/controllers/CurrencyConversionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/currency-conversion/src/controllers/CurrencyConversionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/controllers/SimpleDictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/controllers/SimpleDictionaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/services/SimpleDictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/services/SimpleDictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/services/SimpleDictionaryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/classes/services/SimpleDictionaryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/views/result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/artifacts/simple_dictionary_war_exploded/WEB-INF/views/result.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/controllers/SimpleDictionaryController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/controllers/SimpleDictionaryController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/services/SimpleDictionary.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/services/SimpleDictionary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/services/SimpleDictionaryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/out/production/simple-dictionary/services/SimpleDictionaryImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/controllers/SimpleDictionaryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/controllers/SimpleDictionaryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/services/SimpleDictionary.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/services/SimpleDictionary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/services/SimpleDictionaryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/src/services/SimpleDictionaryImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/web/WEB-INF/views/result.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Bai_tap/simple-dictionary/web/WEB-INF/views/result.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +65,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/c07g-spring-mvc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -169,6 +180,7 @@
       <updated>1605863312325</updated>
       <workItem from="1605863315531" duration="4206000" />
       <workItem from="1606045516537" duration="671000" />
+      <workItem from="1606120963930" duration="14000" />
     </task>
     <servers />
   </component>

@@ -22,15 +22,9 @@ public class SimpleDictionaryController {
 
     @PostMapping("/search")
     public String search(@RequestParam String searchWord, Model model) {
-        List<Dictionary> dictionaryList = dictionaryService.getAllList();
-        for (int i = 0; i < dictionaryList.size(); i++) {
-            if (searchWord.equalsIgnoreCase(dictionaryList.get(i).getEng())) {
-
-                model.addAttribute("result",dictionaryList.get(i).getVie());
-                model.addAttribute("searhWord",searchWord);
-                return "result";
-            }
-        }
+        String result=dictionaryService.search(searchWord);
+        model.addAttribute("searchWord",searchWord);
+        model.addAttribute("result",result);
         return "result";
     }
 }

@@ -12,7 +12,7 @@
 </head>
 <body>
 <h1>
-${searhWord} Có Nghĩa là : ${result}
+${searchWord} Có Nghĩa là : ${result}
 </h1>
 </body>
 </html>

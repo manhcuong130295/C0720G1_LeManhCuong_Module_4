@@ -13,16 +13,17 @@ import service.ConversionService;
 public class CurrencyConversionController {
     @Qualifier("convertUsdToVndService")
     @Autowired
-    ConversionService conversionService;
+    private ConversionService conversionService;
 
     @PostMapping({"/convert"})
-    public String covert(@RequestParam String usd, Model model){
-        int result=conversionService.convert(Integer.parseInt(usd));
-        model.addAttribute("resultFinal",result);
+    public String covert(@RequestParam String usd, Model model) {
+        int result = conversionService.convert(Integer.parseInt(usd));
+        model.addAttribute("resultFinal", result);
         return "result";
     }
+
     @GetMapping("")
-    public String getHome(){
+    public String getHome() {
         return "form";
     }
 }
