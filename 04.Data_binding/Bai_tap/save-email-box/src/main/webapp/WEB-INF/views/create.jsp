@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 
 <html lang="en">
@@ -12,36 +13,23 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<form method="post" action="/detail">
-    <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect1">Example select</label>
-        <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlSelect2">Example multiple select</label>
-        <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="exampleFormControlTextarea1">Example textarea</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-    </div>
-</form>
+<form:form modelAttribute="emailBox" method="post" action="/detail">
+    <p>Languages : <span><form:select type="text" path="language" items="${listLanguages}"/></span></p>
+    <p>Page Size :
+    <p>Page Size :
+        <span>Show</span>
+        <span><form:select type="text" path="pageSize" items="${page_size}"/></span>
+        <span>email per page</span>
+    </p>
+    <p>Spams Filter :
+        <input type="checkbox" name="spamsFilter" checked="checked" value="true"/>
+        <lable>enable per page</lable>
+    </p>
+    <p>Signature :</p>
+    <textarea name="signature" id="" cols="30" rows="10"></textarea>
+    <br>
+    <input type="submit" value="Update"/>
+</form:form>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
