@@ -1,6 +1,8 @@
 package com.c0720g1.manhcuong.controller;
 
 import com.c0720g1.manhcuong.model.EmailBox;
+import com.c0720g1.manhcuong.service.EmailBoxService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,37 +14,22 @@ import java.util.List;
 
 @Controller
 public class EmailBoxController {
-    public static List<String> listLanguages = new ArrayList<>();
-    public static List<Integer> page_size=new ArrayList<>();
+    @Autowired
+    private EmailBoxService emailBoxService;
 
-    static {
-        listLanguages.add("English");
-        listLanguages.add("Vietnamese");
-        listLanguages.add("Japan");
-        listLanguages.add("Chinese");
-    }
-
-    static {
-        page_size.add(5);
-        page_size.add(10);
-        page_size.add(15);
-        page_size.add(25);
-        page_size.add(50);
-        page_size.add(100);
-    }
-    @GetMapping({"","/create"})
-    public String createNew(Model model, EmailBox emailBox){
-        List<String> listLanguage=listLanguages;
-        List<Integer> listPageSize=page_size;
-        model.addAttribute("emailBox",new EmailBox());
-        model.addAttribute("listLanguages",listLanguages);
-        model.addAttribute("page_size",page_size);
+    @GetMapping({"", "/create"})
+    public String createNew(Model model, EmailBox emailBox) {
+        List<String> listLanguage = this.emailBoxService.getAllLanguage();
+        List<Integer> listPageSize = this.emailBoxService.getAllPageSize();
+        model.addAttribute("emailBox", new EmailBox());
+        model.addAttribute("listLanguages", listLanguage);
+        model.addAttribute("page_size", listPageSize);
         return "create";
     }
 
     @PostMapping("/detail")
-    public String detail(@ModelAttribute EmailBox emailBox,Model model){
-           model.addAttribute("emailBox",emailBox);
-           return "detail";
+    public String detail(@ModelAttribute EmailBox emailBox, Model model) {
+        model.addAttribute("emailBox", emailBox);
+        return "detail";
     }
 }

@@ -1,7 +1,7 @@
 package com.c0720g1.manhcuong.model;
 
 public class EmailBox {
-    String Language;
+    String language;
     int pageSize;
     boolean spamFilter;
     String signature;
@@ -10,18 +10,18 @@ public class EmailBox {
     }
 
     public EmailBox(String language, int pageSize, boolean spamFilter, String signature) {
-        Language = language;
+        this.language = language;
         this.pageSize = pageSize;
         this.spamFilter = spamFilter;
         this.signature = signature;
     }
 
     public String getLanguage() {
-        return Language;
+        return language;
     }
 
     public void setLanguage(String language) {
-        Language = language;
+        this.language = language;
     }
 
     public int getPageSize() {
