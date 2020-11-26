@@ -46,11 +46,13 @@ public class ProductController {
 
     @PostMapping("/update")
     public String updateProduct(@ModelAttribute Product product, RedirectAttributes redirect) {
-        productService.update(product.getId(),product);
+        productService.update(product);
+        redirect.addFlashAttribute("success", "Edit product successfully!");
         return "redirect:/";
     }
     @GetMapping("/{id}/delete")
     public String deleteProduct(@PathVariable int id,RedirectAttributes redirect){
+        redirect.addFlashAttribute("success", "Deleted!");
         productService.remove(id);
         return  "redirect:/";
     }

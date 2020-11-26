@@ -43,8 +43,7 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public void update(int id,Product product) {
-
+    public void update(Product product) {
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
         BaseRepository.entityManager.merge(product);

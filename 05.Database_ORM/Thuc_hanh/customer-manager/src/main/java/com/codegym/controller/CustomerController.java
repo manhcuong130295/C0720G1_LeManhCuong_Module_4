@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.model.Customer;
+import com.codegym.entity.Customer;
 import com.codegym.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,7 +33,6 @@ public class CustomerController {
 
     @PostMapping("/save")
     public String saveCustomer(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
-        customer.setId((int) (Math.random() * 10000));
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("success", "Saved customer successfully!");
         return "redirect:/";
@@ -47,7 +46,7 @@ public class CustomerController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute Customer customer, RedirectAttributes redirectAttributes) {
-        customerService.update(customer.getId(), customer);
+        customerService.update(customer);
         return "redirect:/";
     }
 
