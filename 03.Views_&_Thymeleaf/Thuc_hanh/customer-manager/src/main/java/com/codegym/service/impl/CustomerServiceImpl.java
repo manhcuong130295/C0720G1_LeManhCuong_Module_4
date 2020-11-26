@@ -1,6 +1,6 @@
 package com.codegym.service.impl;
 
-import com.codegym.model.Customer;
+import com.codegym.entity.Customer;
 import com.codegym.service.CustomerService;
 import org.springframework.stereotype.Service;
 

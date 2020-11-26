@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.model.Customer;
+import com.codegym.entity.Customer;
 import com.codegym.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

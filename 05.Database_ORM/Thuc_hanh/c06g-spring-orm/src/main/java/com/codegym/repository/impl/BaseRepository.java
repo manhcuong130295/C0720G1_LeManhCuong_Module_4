@@ -15,7 +15,7 @@ public class BaseRepository {
     static {
         try {
             sessionFactory = new Configuration()
-                    .configure("hibernate.conf.xml")
+                    .configure("D:\\ChuongTrinhCodegym\\C0720G1_LeManhCuong_Module_4\\05.Database_ORM\\Thuc_hanh\\c06g-spring-orm\\src\\main\\resources\\hibernate.conf.xml")
                     .buildSessionFactory();
             entityManager = sessionFactory.createEntityManager();
         } catch (HibernateException e) {
