@@ -7,12 +7,15 @@ public class Product {
     int price;
     String category;
     int unit;
-
+    static int num=0;
     public Product() {
+        num++;
+        this.id=num;
     }
 
-    public Product(int id, String productCode, String productName, int price, String category, int unit) {
-        this.id = id;
+    public Product(String productCode, String productName, int price, String category, int unit) {
+        num++;
+        this.id=num;
         this.productCode = productCode;
         this.productName = productName;
         this.price = price;
