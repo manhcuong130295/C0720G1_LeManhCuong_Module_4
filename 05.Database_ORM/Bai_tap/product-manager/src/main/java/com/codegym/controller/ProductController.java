@@ -51,9 +51,10 @@ public class ProductController {
         return "redirect:/";
     }
     @GetMapping("/{id}/delete")
-    public String deleteProduct(@PathVariable int id,RedirectAttributes redirect){
+    public String deleteProduct(@PathVariable int id,RedirectAttributes redirect,Product product){
+        product=productService.findById(id);
+        productService.remove(product);
         redirect.addFlashAttribute("success", "Deleted!");
-        productService.remove(id);
         return  "redirect:/";
     }
     @GetMapping("/{id}/detail")

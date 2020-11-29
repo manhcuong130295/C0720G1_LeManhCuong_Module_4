@@ -51,8 +51,8 @@ public class ProductRepositoryImpl implements ProductRepository {
     }
 
     @Override
-    public void remove(int id) {
-        Product product = findById(id);
+    public void remove(Product product) {
+//        Product product = findById(id);
         EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
         entityTransaction.begin();
         BaseRepository.entityManager.remove(product);
