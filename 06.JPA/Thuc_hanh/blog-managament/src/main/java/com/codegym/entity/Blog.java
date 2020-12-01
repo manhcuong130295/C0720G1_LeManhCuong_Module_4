@@ -8,6 +8,8 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idBlog;
     private String titleBlog;
+    @Column(name ="write_date",columnDefinition = "DATE")
+    private String writeDate;
     private String content;
     private String author;
     @ManyToOne
@@ -31,6 +33,14 @@ public class Blog {
 
     public void setTitleBlog(String titleBlog) {
         this.titleBlog = titleBlog;
+    }
+
+    public String getWriteDate() {
+        return writeDate;
+    }
+
+    public void setWriteDate(String writeDate) {
+        this.writeDate = writeDate;
     }
 
     public String getContent() {
