@@ -7,9 +7,22 @@
 <th:block th:replace="layout::header"></th:block>
     <form action="#" th:action="@{/save}" th:object="${blog}"  method="POST" novalidate="novalidate" th:width="150px">
         <input type="hidden" th:field="*{idBlog}">
+        <div>
+            <label>Category</label>
+            <select th:field="*{category}">
+                <option
+                        th:each="category : ${categories}"
+                        th:value="${category.id}"
+                        th:text="${category.name}"></option>
+            </select>
+        </div>
         <div class="form-group">
-            <label for="idBlog">Id Blog</label>
+            <label for="idBlog">Title</label>
             <input type=text  th:field="*{titleBlog}" class="form-control" id="idBlog">
+        </div>
+        <div class="form-group">
+            <label for="writeDate">Write Date</label>
+            <input type=date  th:field="*{writeDate}" class="form-control" id="writeDate">
         </div>
         <div class="form-group">
             <label for="content">Content</label>

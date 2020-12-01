@@ -17,7 +17,13 @@
             <p>No.<span th:text="${blogDetail.idBlog}"></span> </p>
         </div>
         <div> <label for="title">Title:</label>
+            <p id="category"><span th:text="${blogDetail.category.name}"></span></p>
+        </div>
+        <div> <label for="title">Title:</label>
             <p id="title"><span th:text="${blogDetail.titleBlog}"></span></p>
+        </div>
+        <div> <label for="writeDate">Title:</label>
+            <p id="writeDate"><span th:text="${blogDetail.writeDate}"></span></p>
         </div>
         <div><label for="content">Content:</label>
             <p id="content"><span th:text="${blogDetail.getContent()}"></span> </p>

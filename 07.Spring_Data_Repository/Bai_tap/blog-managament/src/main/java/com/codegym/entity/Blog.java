@@ -1,9 +1,6 @@
 package com.codegym.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "blog")
 public class Blog {
@@ -11,8 +8,13 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idBlog;
     private String titleBlog;
+    @Column(name ="write_date",columnDefinition = "DATE")
+    private String writeDate;
     private String content;
     private String author;
+    @ManyToOne
+    @JoinColumn(name = "categoryId", referencedColumnName = "id")
+    private Category category;
 
     public Blog() {
     }
@@ -33,6 +35,14 @@ public class Blog {
         this.titleBlog = titleBlog;
     }
 
+    public String getWriteDate() {
+        return writeDate;
+    }
+
+    public void setWriteDate(String writeDate) {
+        this.writeDate = writeDate;
+    }
+
     public String getContent() {
         return content;
     }
@@ -47,5 +57,13 @@ public class Blog {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
