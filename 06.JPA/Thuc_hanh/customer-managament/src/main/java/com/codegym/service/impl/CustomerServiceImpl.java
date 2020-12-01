@@ -10,8 +10,8 @@ import java.util.List;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
-   @Autowired
-   CustomerRepository customerRepository;
+    @Autowired
+    CustomerRepository customerRepository;
 
     @Override
     public List<Customer> findAll() {
@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void update( Customer customer) {
+    public void update(Customer customer) {
         customerRepository.save(customer);
     }
 

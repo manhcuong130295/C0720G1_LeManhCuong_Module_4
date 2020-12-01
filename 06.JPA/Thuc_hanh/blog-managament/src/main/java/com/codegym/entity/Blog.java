@@ -10,6 +10,9 @@ public class Blog {
     private String titleBlog;
     private String content;
     private String author;
+    @ManyToOne
+    @JoinColumn(name = "categoryId", referencedColumnName = "id")
+    private Category category;
 
     public Blog() {
     }
@@ -44,5 +47,13 @@ public class Blog {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

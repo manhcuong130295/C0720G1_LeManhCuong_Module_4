@@ -62,9 +62,10 @@ public class CustomerController {
         redirectAttributes.addFlashAttribute("success", "Removed customer successfully!");
         return "redirect:/";
     }
+
     @GetMapping("/{id}/detail")
-    public String detailCustomer(@PathVariable int id, Model model){
-        model.addAttribute("customer",customerService.findById(id));
+    public String detailCustomer(@PathVariable int id, Model model) {
+        model.addAttribute("customer", customerService.findById(id));
         return "detail";
     }
 }

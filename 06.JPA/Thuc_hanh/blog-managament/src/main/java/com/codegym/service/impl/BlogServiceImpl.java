@@ -4,6 +4,7 @@ import com.codegym.entity.Blog;
 import com.codegym.repository.BlogRepository;
 import com.codegym.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
