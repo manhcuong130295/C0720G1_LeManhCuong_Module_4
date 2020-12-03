@@ -10,7 +10,7 @@ public class AgeValidation implements ConstraintValidator<Age, String> {
 
     @Override
     public boolean isValid(String value, ConstraintValidatorContext context) {
-        if (value.equals(" ")) {
+        if (value.equals("")) {
             return false;
         } else {
             LocalDate now = LocalDate.now();
