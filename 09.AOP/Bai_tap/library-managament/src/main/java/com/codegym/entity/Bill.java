@@ -11,7 +11,7 @@ public class Bill {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_student", referencedColumnName = "id")
     private Student student;
-
+    int borrowCode;
     @ManyToMany(mappedBy = "bill",cascade = CascadeType.ALL)
     List<Book> book;
     int unit;
@@ -49,5 +49,13 @@ public class Bill {
 
     public void setUnit(int unit) {
         this.unit = unit;
+    }
+
+    public int getBorrowCode() {
+        return borrowCode;
+    }
+
+    public void setBorrowCode(int borrowCode) {
+        this.borrowCode = borrowCode;
     }
 }

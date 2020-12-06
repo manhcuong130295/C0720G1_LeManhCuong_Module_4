@@ -5,6 +5,8 @@ import com.codegym.repository.BookRepository;
 import com.codegym.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -30,6 +32,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book findById(int id) {
-        return null;
+        return this.bookRepository.findById(id).get();
     }
+
 }

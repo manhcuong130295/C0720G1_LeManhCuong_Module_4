@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+</head>
+<body>
+<h3>Update Book</h3>
+<p>
+    <a th:href="@{/book}">
+        Back to list
+    </a>
+</p>
+<form th:action="@{/book/save}" th:object="${book}" method="post">
+    <input type="hidden" th:field="*{id}" th:value="${book.id}">
+    <p>Book name</p>
+    <input type="text" th:field="*{name}">
+    <p>Author</p>
+    <input type="text" th:field="*{author}">
+    <p>Unit</p>
+    <input type="text" th:field="*{unit}">
+    <button type="submit" value="create">Update</button>
+</form>
+</body>
+</html>
