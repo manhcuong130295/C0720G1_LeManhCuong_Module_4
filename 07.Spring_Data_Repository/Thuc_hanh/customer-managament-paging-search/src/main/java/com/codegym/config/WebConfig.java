@@ -1,5 +1,4 @@
 package com.codegym.config;
-
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -32,7 +31,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public LocaleResolver localeResolver() {
         SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-        localeResolver.setDefaultLocale(new Locale("vi"));
+        localeResolver.setDefaultLocale(new Locale("en"));
         return localeResolver;
     }
 }
