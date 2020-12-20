@@ -1,0 +1,114 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+    <div style="width: 400px">
+        <form th:action="@{/employee/save}" method="post" th:object="${employee}" novalidate="novalidate">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full name</label>
+                <span><input type="text" class="form-control" id="name" th:field="*{employeeName}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="birthDay" class="form-label">Date of birth</label>
+                <span><input type="date" class="form-control" id="birthDay" th:field="*{birthDay}"></span>
+            </div>
+<!--            <div class="mb-3 form-check">-->
+<!--                <label for="gender" class="form-label">Gender</label>-->
+<!--                <span>  <select th:field="*{em}" id="gender">-->
+<!--                    <option th:value="1" th:text="Female"></option>-->
+<!--                    <option th:value="0" th:text="Male"></option>-->
+<!--                    <option th:value="3" th:text="Unknown"></option>-->
+<!--                </select></span>-->
+<!--            </div>-->
+
+            <div class="mb-3">
+                <label for="idCard" class="form-label">Id Card Number</label>
+                <span><input type="text" class="form-control" id="idCard" th:field="*{employeeIdCard}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="salary" class="form-label">Salary</label>
+                <span><input type="text" class="form-control" id="salary" th:field="*{employeeSalary}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone number</label>
+                <span><input type="text" class="form-control" id="phone" th:field="*{employeePhone}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <span><input type="email" class="form-control" id="email" th:field="*{employeeEmail}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">Address</label>
+                <span><input type="text" class="form-control" id="address" th:field="*{employeeAddress}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="position" class="form-label">Position</label>
+                <span><select id="position" th:field="*{position}">
+                    <option
+                            th:each="row:${position}"
+                            th:value="${row.id}"
+                            th:text="${row.positionName}"
+                    ></option>
+                </select></span>
+            </div>
+            <div class="mb-3">
+                <label for="education-degree" class="form-label">Education Degree</label>
+                <span><select id="education-degree" th:field="*{educationDegree}">
+                    <option
+                            th:each="row:${education_degree}"
+                            th:value="${row.id}"
+                            th:text="${row.educationDegreeName}"
+                    ></option>
+                </select></span>
+            </div>
+            <div class="mb-3">
+                <label for="division" class="form-label">Education Degree</label>
+                <span><select id="division" th:field="*{division}">
+                    <option
+                            th:each="row:${division}"
+                            th:value="${row.id}"
+                            th:text="${row.divisionName}"
+                    ></option>
+                </select></span>
+            </div>
+            <div class="mb-3">
+                <label for="appUser" class="form-label">Education Degree</label>
+                <span><select id="appUser" th:field="*{appUser}">
+                    <option
+                            th:each="row:${appUser}"
+                            th:value="${row.userName}"
+                            th:text="${row.userName}"
+                    ></option>
+                </select></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

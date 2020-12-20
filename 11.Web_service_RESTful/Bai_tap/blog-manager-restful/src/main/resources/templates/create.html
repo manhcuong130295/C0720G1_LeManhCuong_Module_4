@@ -5,7 +5,7 @@
 </head>
 <body>
 <th:block th:replace="layout::header"></th:block>
-    <form action="#" th:action="@{/save}" th:object="${blog}"  method="POST" novalidate="novalidate" th:width="150px">
+    <form th:action="@{/save}" th:object="${blog}"  method="POST" novalidate="novalidate" th:width="150px">
         <input type="hidden" th:field="*{idBlog}">
         <div>
             <label>Category</label>

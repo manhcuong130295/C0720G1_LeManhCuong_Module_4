@@ -1,0 +1,148 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Title</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Employee Manager</a>
+    <div class="container-fluid">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/employee/create-employee">Add new Employee</a></li>
+            <li><a class="dropdown-item" th:href="@{/}">Back to home</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+        </li>
+        </ul>
+        <form class="d-flex" action="/employee/list-employee">
+            <input class="form-control me-2" name="keyword">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<table class="table table-success table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Birth Day</th>
+    <th>Salary</th>
+    <th>Phone number</th>
+    <th>Id Card Number</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Position</th>
+    <th>Education Degree</th>
+    <th>Division</th>
+    <th>Action</th>
+    </thead>
+
+    <tbody>
+    <tr th:each="employee:${listEmployee}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.employeeName}"></td>
+        <td th:text="${employee.birthDay}"></td>
+        <td th:text="${employee.employeeSalary}"></td>
+        <td th:text="${employee.employeePhone}"></td>
+        <td th:text="${employee.employeeIdCard}"></td>
+        <td th:text="${employee.employeeEmail}"></td>
+        <td th:text="${employee.employeeAddress}"></td>
+        <td th:switch="${employee.position.id}">
+            <span th:case="1">President</span>
+            <span th:case="2">Manager</span>
+            <span th:case="3">Supervisor</span>
+            <span th:case="4">Expert</span>
+            <span th:case="5">Serve</span>
+            <span th:case="6">Receptionist</span>
+        </td>
+
+        <td th:switch="${employee.educationDegree.id}">
+            <span th:case="1">University</span>
+            <span th:case="2">Colleges</span>
+            <span th:case="3">Intermediate</span>
+            <span th:case="4">After University</span>
+            <span th:case="5">Member</span>
+        </td>
+        <td><a th:href="@{/employee/{id}/edit(id=${employee.getId()})}">edit</a></td>
+        <td>
+            <button class="btn btn-outline-danger" th:data-id="${employee.id}"
+                    onclick="getId(this.getAttribute('data-id'))" data-toggle="modal" data-target="#deleteModal">Delete
+            </button>
+        </td>
+        <!--        <td>-->
+        <!--            <button class="btn btn-outline-danger" th:onclick="getId(${customer.id})" data-toggle="modal" data-target="#deleteModal">Delete</button>-->
+        <!--        </td>-->
+        <td><a th:href="@{/employee/{id}/detail(id=${employee.getId()})}">detail employee</a></td>
+    </tr>
+
+    </tbody>
+</table>
+
+<a th:if="${listEmployee.hasPrevious()}"
+   th:href="@{/customer/list(page = ${listEmployee.number - 1}, keyword = ${keywordAfterCheck})}">Previous</a>
+<span th:text="${listEmployee.number + 1}"></span>/<span th:text="${listEmployee.totalPages}"></span>
+<a th:if="${listEmployee.hasNext()}"
+   th:href="@{/customer/list(page = ${listEmployee.number + 1}, keyword = ${keywordAfterCheck})}">Next</a>
+
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form th:action="@{/employee/delete}" method="get">
+                    <div class="modal-body">
+                        <input type="hidden" id="deleteId" name="id">
+                        <h4>Are you delete this Employee?</h4>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function getId(id) {
+        document.getElementById("deleteId").value = id;
+    }
+</script>
+<!-- Button trigger modal -->
+
+<!-- Button trigger modal -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

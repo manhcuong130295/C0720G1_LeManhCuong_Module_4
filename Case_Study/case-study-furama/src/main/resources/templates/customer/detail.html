@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+    <div style="width: 400px">
+        <form th:object="${customer}">
+            <div class="mb-3">
+                <label  class="form-label">Full name:</label>
+                <span th:text="${customer.customerName}" class="form-control"></span>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Date of birth:</label>
+                <span th:text="${customer.birthDay}" class="form-control" ></span>
+            </div>
+            <div class="mb-3 form-check">
+                <label class="form-label">Gender:</label>
+              <th:block th:switch="*{gender}">
+                  <span th:case="1" >Male</span>
+                  <span th:case="0" >Female</span>
+                  <span th:case="3" >unknown</span>
+              </th:block>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Id Card Number:</label>
+                <span th:text="${customer.idCardNum}" class="form-control"></span>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Phone number:</label>
+                <span th:text="${customer.phoneNumber}" class="form-control"></span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Email:</label>
+                <span th:text="${customer.email}" class="form-control"></span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Address</label>
+                <span th:text="${customer.address}" class="form-control"></span>
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">Customer type:</label>
+                <th:block th:switch="*{customerType.id}">
+                    <span th:case="1">Diamond</span>
+                    <span th:case="2">Platinum</span>
+                    <span th:case="3">Gold</span>
+                    <span th:case="4">Silver</span>
+                    <span th:case="5">Member</span>
+                </th:block>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

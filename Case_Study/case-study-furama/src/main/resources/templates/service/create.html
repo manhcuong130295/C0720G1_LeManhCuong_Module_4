@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+    <div style="width: 400px">
+        <form th:action="@{/service/save}" method="post" th:object="${service}" novalidate="novalidate">
+            <div class="mb-3">
+                <label for="name" class="form-label">Service name</label>
+                <span><input type="text" class="form-control" id="name" th:field="*{serviceName}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="cost" class="form-label">Service Cost</label>
+                <span><input type="text" class="form-control" id="cost" th:field="*{serviceCode}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="people" class="form-label">Max people</label>
+                <span><input type="text" class="form-control" id="people" th:field="*{maxPeople}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="standardRoom" class="form-label">Standar Room </label>
+                <span><input type="text" class="form-control" id="standardRoom" th:field="*{standardRoom}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Service Area</label>
+                <span><input type="text" class="form-control" id="description" th:field="*{description_other_convenience}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="poolArea" class="form-label">Pool Area</label>
+                <span><input type="text" class="form-control" id="poolArea" th:field="*{poolArea}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="floor" class="form-label">Floor Number</label>
+                <span><input type="text" class="form-control" id="floor" th:field="*{numberFloor}"></span>
+            </div>
+            <div class="mb-3 form-check">
+                <label for="serviceType" class="form-label">Service Type</label>
+                <span>  <select th:field="*{serviceType}" id="serviceType">
+                   <option
+                   th:each="row:${serviceType}"
+                   th:value="${row.serviceTypeId}"
+                   th:text="${row.serviceTypeName}"
+                   ></option>
+                </select></span>
+            </div>
+
+
+            <div class="mb-3">
+                <label for="type" class="form-label">Rent type</label>
+                <span><select id="type" th:field="*{rentType}">
+                    <option
+                            th:each="type:${rentType}"
+                            th:value="${type.rentTypeId}"
+                            th:text="${type.rentTypename}"
+                    ></option>
+                </select></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

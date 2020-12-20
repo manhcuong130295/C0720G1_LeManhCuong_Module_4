@@ -1,0 +1,85 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<title>Title</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Contact Manager</a>
+    <div class="container-fluid">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menu
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/contact/create-contact">Add new Contact</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+        </li>
+        </ul>
+        <form class="d-flex" action="/employee/list-employee">
+            <input class="form-control me-2" name="keyword">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<table class="table table-success table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Start date</th>
+    <th>End Day</th>
+    <th>Deposit</th>
+    <th>Total Money</th>
+    <th>Employee Name</th>
+    <th>Customer Name</th>
+    <th>Service</th>
+    <th>Action</th>
+
+    </thead>
+
+    <tbody>
+    <tr th:each="contact:${listContact}">
+        <td th:text="${contact.idContact}"></td>
+        <td th:text="${contact.startDate}"></td>
+        <td th:text="${contact.endDate}"></td>
+        <td th:text="${contact.deposit}"></td>
+        <td th:text="${contact.totalMoney}"></td>
+        <td th:text="${contact.customer.customerName}"></td>
+        <td th:text="${contact.employee.employeeName}"></td>
+        <td th:text="${contact.service.serviceName}"></td>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+
+<!-- Button trigger modal -->
+
+<!-- Button trigger modal -->
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

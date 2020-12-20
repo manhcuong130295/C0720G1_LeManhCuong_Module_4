@@ -1,0 +1,92 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container-fluid" style="text-align: center">
+    <div style="width: 400px">
+        <form th:action="@{/contact/save}" method="post" th:object="${contact}" novalidate="novalidate">
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <span><input type="date" class="form-control" id="startDate" th:field="*{startDate}"></span>
+            </div>
+            <div class="mb-3">
+                <label for="endDate" class="form-label">End date</label>
+                <span><input type="date" class="form-control" id="endDate" th:field="*{endDate}"></span>
+            </div>
+            <!--            <div class="mb-3 form-check">-->
+            <!--                <label for="gender" class="form-label">Gender</label>-->
+            <!--                <span>  <select th:field="*{em}" id="gender">-->
+            <!--                    <option th:value="1" th:text="Female"></option>-->
+            <!--                    <option th:value="0" th:text="Male"></option>-->
+            <!--                    <option th:value="3" th:text="Unknown"></option>-->
+            <!--                </select></span>-->
+            <!--            </div>-->
+
+            <div class="mb-3">
+                <label for="deposit" class="form-label">Deposit</label>
+                <span><input type="text" class="form-control" id="deposit" th:field="*{deposit}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="salary" class="form-label">Total Money</label>
+                <span><input type="text" class="form-control" id="salary" th:field="*{totalMoney}"></span>
+            </div>
+
+            <div class="mb-3">
+                <label for="customer" class="form-label">Customer Name</label>
+                <span><select id="customer" th:field="*{customer}">
+                    <option
+                            th:each="row:${customer}"
+                            th:value="${row.id}"
+                            th:text="${row.customerName}"
+                    ></option>
+                </select></span>
+            </div>
+            <div class="mb-3">
+                <label for="employee" class="form-label">Employee</label>
+                <span><select id="employee" th:field="*{employee}">
+                    <option
+                            th:each="row:${employee}"
+                            th:value="${row.id}"
+                            th:text="${row.employeeName}"
+                    ></option>
+                </select></span>
+            </div>
+            <div class="mb-3">
+                <label for="service" class="form-label">Service name</label>
+                <span><select id="service" th:field="*{service}">
+                    <option
+                            th:each="row:${service}"
+                            th:value="${row.serviceId}"
+                            th:text="${row.serviceName}"
+                    ></option>
+                </select></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>

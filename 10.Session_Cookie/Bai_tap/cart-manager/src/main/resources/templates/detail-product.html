@@ -15,6 +15,6 @@
 <p>Price:
     <span th:text="${product.price}"></span></p>
 
-<a th:href="@{/{id}/cart(id=${product.id})}">Add to cart</a>
+<a th:href="@{/cart/{id}(id=${product.id})}">Add to cart</a>
 </body>
 </html>
